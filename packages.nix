@@ -15,6 +15,9 @@ environment.systemPackages = with
 	wget
 	curl
 	wl-clipboard
+	nautilus
+	file-roller
+	zip
   ];
 
 environment.gnome.excludePackages = with 
