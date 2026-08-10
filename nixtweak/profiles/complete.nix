@@ -1,41 +1,35 @@
-```nix
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    # Navegadores
-    firefox
+  programs.nix-ld.enable = true;
 
-    # Multimedia
-    vlc
-
-    # Oficina
-    libreoffice
-
-    # Desarrollo
-    git
-    neovim
-
-    # Editores
-    vscode
-
-    # Grabación / streaming
-    obs-studio
-
-    # Utilidades
-    curl
-    wget
-    unzip
-    p7zip
-    file
-    xarchiver
-
-    # Sistema
-    htop
-    fastfetch
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
   ];
 
-  programs.steam.enable = true;
-}
-```
+  environment.systemPackages = with pkgs; [
+    git
+    wget
+    curl
+    vim
+    nano
+    fish
 
+    gcc
+    gnumake
+    pkg-config
+    cmake
+    ninja
+    gdb
+
+    python3
+    nodejs
+
+    ripgrep
+    fd
+    tree-sitter
+
+    qt6.qtbase
+  ];
+}
